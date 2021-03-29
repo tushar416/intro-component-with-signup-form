@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Intro component with sign up form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="text-div">
+        <h1>Learn to code by watching others</h1>
+        <p>
+          See how experienced developers solve problems in real-time. Watching
+          scripted tutorials is great, but understanding how developers think is
+          invaluable.
+        </p>
+      </div>
+      <div class="signup-div">
+        <div class="offer">
+          <h2>Try it free 7 days <span>then $20/mo. thereafter</span></h2>
+        </div>
+        <form action="/action_page.php">
+          <div id="first-name">
+            <input
+              type="text"
+              placeholder="First Name"
+              name="first-name"
+              required
+            />
+            <img src="images/icon-error.svg" alt="" class="error-icon error" />
+            <p class="error-text error">First name cannot be empty</p>
+          </div>
+
+          <div id="last-name">
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="last-name"
+              required
+            />
+            <img src="images/icon-error.svg" alt="" class="error-icon error" />
+
+            <p class="error-text error">Email name cannot be empty</p>
+          </div>
+
+          <div id="email">
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              required
+            />
+            <img src="images/icon-error.svg" alt="" class="error-icon error" />
+
+            <p class="error-text error">Looks like this is not an email</p>
+          </div>
+
+          <div id="password">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+            <img src="images/icon-error.svg" alt="" class="error-icon error" />
+            <p class="error-text error">Password cannot be empty</p>
+          </div>
+          <button type="submit" class="signupbtn">Claim your free trial</button>
+          <p class="terms-services">
+            By clicking the button, you are agreeing to our
+            <span>Terms and Services</span>
+          </p>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="https://github.com/tushar416">Tushar Mehra</a>.
+      </p>
+    </footer>
+    <script>
+      let firstName = document.querySelector("input[type=text]");
+      let lastName = document.querySelector("input[name=last-name]");
+      let email = document.querySelector("input[type=email]");
+      let password = document.querySelector("input[type=password]");
+      let button = document.querySelector("button");
+      let error = document.querySelectorAll(".error");
+      var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+      button.addEventListener("click", () => {
+        if (firstName.value == "") {
+          let err = firstName.parentElement.children;
+          err[1].classList.remove("error");
+          err[2].classList.remove("error");
+        }
+        if (lastName.value == "") {
+          let err = lastName.parentElement.children;
+          err[1].classList.remove("error");
+          err[2].classList.remove("error");
+        }
+        if (!mailformat.test(String(email.value))) {
+          let err = email.parentElement.children;
+          err[1].classList.remove("error");
+          err[2].classList.remove("error");
+          email.style.color = "red";
+        }
+        if (password.value == "") {
+          let err = password.parentElement.children;
+          err[1].classList.remove("error");
+          err[2].classList.remove("error");
+        }
+      });
+    </script>
+  </body>
+</html>
